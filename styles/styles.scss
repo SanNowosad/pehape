@@ -1,0 +1,198 @@
+@import 'navbar';
+@import 'form';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+// Hero section
+.hero {
+    background-color: $bg ;
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+        margin: 0 auto;
+        height: 90vh;
+        z-index: 1;
+        width: 100%;
+        max-width: 1200px;
+        padding-right: 24px;
+        padding-left: 24px;
+
+        @include tablet {
+            grid-template-columns: 1fr;
+            height: 100%;
+        }
+
+        &--left {
+            width: 100%;
+            line-height: 1.2;
+
+            @include tablet {
+                padding: 5rem 0;
+            }
+
+            @include mobile {
+                line-height: 1,5;
+            }
+
+            h1 {
+                font-size: 4rem;
+                color: $dark;
+    
+                @include mobile {
+                    font-size: 2rem;
+                }
+            }
+            
+            h2 {
+                font-size: 3rem;
+                color: $color1;
+
+                @include mobile {
+                    font-size: 1.5rem;
+                }
+            }
+
+            p {
+                font-size: 2rem;
+                color: $dark;
+                margin-top: 1rem;
+                font-weight: 700;
+
+                @include mobile {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        &--btn {
+            font-size: 1rem;
+            background-color: $color1;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 2rem;
+            color: $light;
+            margin-top: 2rem;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            outline: none;
+
+            &:hover {
+                background: $color2;
+                transition: all 0.3s;
+            }
+
+            a {
+                position: relative;
+                z-index: 2;
+                color: $light;
+                text-decoration: none;
+            }
+
+            :after {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 100%;
+                background: $color2;
+                transition: all 0.3s;
+                border-radius: 4px;
+            }
+
+            :hover:after {
+                width: 100%;
+            }
+        }
+        
+        &--right {
+            text-align: center;
+        }
+
+        &--img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.form {
+    background-color: $color2;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    &__container {
+        background: $bg;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 2vh;
+        height: 60vh;
+        width: 60vh;
+        max-width: 1200px;
+        border-radius: 3rem;
+        box-shadow: inset;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+
+            input {
+                background-color: $bg;
+                border: 0.063rem solid;
+                border-radius: 3rem;
+                padding: 0.5rem 1rem;
+                margin: 0.5rem;
+
+                &[placeholder] {
+                    font-size: 1rem;
+                }
+
+                &[type="submit"] {
+                    font-size: 1rem;
+                    background-color: $color1;
+                    color: $light;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    outline: none;
+                    width: 10rem;
+                    align-self: center;
+                    border-radius: 2rem;
+                    padding: 14px 32px;
+
+                    &:hover, &:focus {
+                        background: $color2;
+                        transition: all 0.3s;
+                    }
+                }
+            }
+
+            label{
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    &__logo {
+        color: $dark;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 1.5rem;
+        margin: 1rem;
+    }
+}
