@@ -1,5 +1,4 @@
 @import 'navbar';
-@import 'form';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
 
 * {
@@ -18,7 +17,7 @@
         align-items: center;
         justify-items: center;
         margin: 0 auto;
-        height: max-content;
+        height: 90vh;
         z-index: 1;
         width: 100%;
         max-width: 1200px;
@@ -140,7 +139,7 @@
         align-items: center;
         margin: 0;
         padding: 2vh;
-        height: 60vh;
+        height: fit-content;
         width: 60vh;
         max-width: 1200px;
         border-radius: 3rem;
