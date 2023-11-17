@@ -9,7 +9,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-// Hero section
 .hero {
     background-color: $bg ;
 
@@ -19,7 +18,7 @@
         align-items: center;
         justify-items: center;
         margin: 0 auto;
-        height: 90vh;
+        height: max-content;
         z-index: 1;
         width: 100%;
         max-width: 1200px;
