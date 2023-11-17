@@ -11,12 +11,7 @@
         <div class="form__container">
             <a href="/pehap/ufo/" class="form__logo">KTopper</a>
             <h1>sign up</h1>
-            <form action="signup.php" method="get">
-                <label for="email">e-mail</label>
-                <input type="email" name="email" id="email" placeholder="your e-mail address" value="<?php echo $_GET['email'];?>">
-                <span><?php 
-                    if ($_GET['email']==""){
-                        echo "No email";} ?></span>
+            <form action=".php" method="get">
                 <label for="nick">nickname</label>
                 <input type="text" name="nick" id="nick" placeholder="your nickname" value="<?php echo $_GET['nick'];?>">
                 <span><?php if ($_GET['nick']==""){
@@ -26,8 +21,8 @@
                 <span><?php if ($_GET['password']==""){
                         echo "No password";} ?></span>
                 <br>
-                <input type="submit" name="submit" value="sign me up">
-                <p>Already have an account? <a href=login.php>Log in</a></p>
+                <input type="submit" name="submit" value="log me in">
+                <p>Don't have an account? <a href=signup.php>sign up</a></p>
             </form>
         </div>
     </div>
