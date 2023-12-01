@@ -1,5 +1,5 @@
 <?php
-    require_once"config.php";
+    require_once "config.php";
 
     $connection = new mysqli($host, $db_user, $db_password, $db_name);
 
