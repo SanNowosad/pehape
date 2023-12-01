@@ -22,7 +22,7 @@
         $result -> close();
         } else {
         echo "Taki użytkownik nie istnieje";
-        }
+            }
         }
 
     $connection -> close();
