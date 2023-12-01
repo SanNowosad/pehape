@@ -1,30 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/styles.css">
-    <title>KTopper</title>
-</head>
-<body>
-    <div class="form">
-        <div class="form__container">
-            <a href="/pehap/ufo/" class="form__logo">KTopper</a>
-            <h1>sign up</h1>
-            <form action=".php" method="get">
-                <label for="nick">nickname</label>
-                <input type="text" name="nick" id="nick" placeholder="your nickname" value="<?php echo $_GET['nick'];?>">
-                <span><?php if ($_GET['nick']==""){
-                        echo "No nickname";} ?></span>
-                <label for="password">password</label>
-                <input type="password" name="password" id="password" placeholder="your secret password">
-                <span><?php if ($_GET['password']==""){
-                        echo "No password";} ?></span>
-                <br>
-                <input type="submit" name="submit" value="log me in">
-                <p>Don't have an account? <a href=signup.php>sign up</a></p>
-            </form>
-        </div>
-    </div>
-</body>
-</html>
+<?php
+    require_once"config.php";
+
+    $connection = new mysqli($host, $db_user, $db_password, $db_name);
+
+    $userNick = $_POST['nick'];
+    $userPassword = $_POST['password'];
+
+    echo $connection -> connect_errno; // kod błędu - 0 jeżeli wszystko jest OK
+    echo $connection -> connect_error; // opis błędu
+
+    $sql = "SELECT * FROM users WHERE nick='$userNick' AND password='$userPassword'";
+    $result = $connection -> query($sql);
+
+    if($result = $connection -> query($sql)) {
+        // jeżeli ilość zwróconych wierszy jest większa niż 0
+        if($result -> num_rows > 0) {
+        // zwraca dane w tabicy asocjacyjnej, które odpowiadają wierszowi z bazy danych
+        $data = $result -> fetch_assoc();
+        $user = $data['user'];
+        $email = $data['email'];
+        $result -> close();
+        } else {
+        echo "Taki użytkownik nie istnieje";
+        }
+        }
+
+    $connection -> close();
+?>
