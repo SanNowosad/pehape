@@ -24,6 +24,7 @@
             $data = $result -> fetch_assoc();
             $nick = $data['nick'];
             $password = $data['password'];
+            $email = $data['email'];
             $result -> close();
             header('Location: profile.php');
         } else {
