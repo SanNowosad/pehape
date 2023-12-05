@@ -27,7 +27,7 @@
                         echo "No password";} ?></span>
                 <br>
                 <input type="submit" name="submit" value="sign me up">
-                <p>Already have an account? <a href=login.php>log in</a></p>
+                <p>Already have an account? <a href=loginpage.php>log in</a></p>
             </form>
         </div>
     </div>

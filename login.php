@@ -22,10 +22,10 @@
         if($result -> num_rows > 0) {
         // zwraca dane w tabicy asocjacyjnej, które odpowiadają wierszowi z bazy danych
             $data = $result -> fetch_assoc();
-            $user = $data['user'];
+            $nick = $data['nick'];
             $password = $data['password'];
-            echo $user;
             $result -> close();
+            header('Location: profile.php');
         } else {
             echo "Taki użytkownik nie istnieje";
         }
