@@ -1,8 +1,13 @@
 <?php
+    session_start();
+
     if ($_POST['nick']==""){
-        echo "No nickname";}
+        $_SESSION['no_nick'] = "no nick povided";}
     if ($_POST['password']==""){
         echo "No password";}
+    if ($_SESSION['no_nick']){
+        header('Location: loginpage.php');
+    }
     
     require_once "config.php";
 
@@ -22,9 +27,9 @@
         if($result -> num_rows > 0) {
         // zwraca dane w tabicy asocjacyjnej, które odpowiadają wierszowi z bazy danych
             $data = $result -> fetch_assoc();
-            $nick = $data['nick'];
-            $password = $data['password'];
-            $email = $data['email'];
+            $_SESSION['nick'] = $data['nick'];
+            $_SESSION['password'] = $data['password'];
+            $_SESSION['email'] = $data['email'];
             $result -> close();
             header('Location: profile.php');
         } else {

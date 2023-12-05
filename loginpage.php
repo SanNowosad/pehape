@@ -14,8 +14,7 @@
             <form action="login.php" method="post">
                 <label for="nick">nickname</label>
                 <input type="text" name="nick" id="nick" placeholder="your nickname" value="<?php echo $_POST['nick'];?>">
-                <span><?php if ($_POST['nick']==""){
-                        echo "No nickname";} ?></span>
+                <span><?php echo $_SESSION['no_nick'] ?></span>
                 <label for="password">password</label>
                 <input type="password" name="password" id="password" placeholder="your secret password">
                 <span><?php if ($_POST['password']==""){
