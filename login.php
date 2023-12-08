@@ -4,8 +4,8 @@
     if ($_POST['nick']==""){
         $_SESSION['no_nick'] = "no nick povided";}
     if ($_POST['password']==""){
-        echo "No password";}
-    if ($_SESSION['no_nick']){
+        $_SESSION['no_pass'] = "no password privided";}
+    if ($_SESSION['no_nick']!="" or $_SESSION['no_pass']!=""){
         header('Location: loginpage.php');
     }
     
