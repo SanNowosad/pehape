@@ -1,11 +1,20 @@
 <?php
     session_start();
 
+    $_SESSION['no_nick'] = "";
+    $_SESSION['no_pass'] = "";
+    $_SESSION['saved_nick'] = "";
+
     if ($_POST['nick']==""){
         $_SESSION['no_nick'] = "no nick povided";}
     if ($_POST['password']==""){
-        $_SESSION['no_pass'] = "no password privided";}
+        $_SESSION['no_pass'] = "no password privided";
+        if ($_POST['nick']!=""){
+            $_SESSION['saved_nick'] = $_POST['nick'];
+        }  
+    }
     if ($_SESSION['no_nick']!="" or $_SESSION['no_pass']!=""){
+        $_SESSION['no_user_found'] = "";
         header('Location: loginpage.php');
     }
     
@@ -31,9 +40,11 @@
             $_SESSION['password'] = $data['password'];
             $_SESSION['email'] = $data['email'];
             $result -> close();
+            $_SESSION['logged_user'] = $data['id'];
             header('Location: profile.php');
         } else {
-            echo "Taki użytkownik nie istnieje";
+            $_SESSION['no_user_found'] = "we couldn't find any user with that data";
+            header('Location: loginpage.php');
         }
     }
 

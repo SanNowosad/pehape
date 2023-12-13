@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['logged_user'])) {
+    header("Location: index.html");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +33,6 @@
     <div class="content">
         <div class="content__container">
             <?php
-                session_start();
                 echo "<h2>hi ".$_SESSION['nick']."<br/> here you can see all your data we hold</h2>";
                 echo "<p>your nick is ".$_SESSION['nick']."</p>";
                 echo "<p>your email is ".$_SESSION['email']."</p>";

@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +13,13 @@
             <a href="/pehap/ufo/" class="form__logo">KTopper</a>
             <h1>log in</h1>
             <form action="login.php" method="post">
+                <?php if($_SESSION['no_user_found']!=""){ echo $_SESSION['no_user_found'];} else {echo "";} ?>
                 <label for="nick">nickname</label>
-                <input type="text" name="nick" id="nick" placeholder="your nickname" value="<?php echo $_POST['nick'];?>">
-                <span><?php session_start(); echo $_SESSION['no_nick'] ?></span>
+                <input type="text" name="nick" id="nick" placeholder="your nickname" value="<?php if($_SESSION['saved_nick']!=""){ echo $_SESSION['saved_nick'];}?>">
+                <span><?php echo $_SESSION['no_nick'] ?></span>
                 <label for="password">password</label>
                 <input type="password" name="password" id="password" placeholder="your secret password">
-                <span><?php session_start(); echo $_SESSION['no_pass'] ?></span>
+                <span><?php echo $_SESSION['no_pass'] ?></span>
                 <br>
                 <input type="submit" name="submit" value="log me in">
                 <p>Don't have an account? <a href=signuppage.php>sign up</a></p>
